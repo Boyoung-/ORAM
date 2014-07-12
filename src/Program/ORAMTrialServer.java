@@ -102,16 +102,18 @@ public class ORAMTrialServer extends ProgServer {
 				    outputState.wires[i].lbl.xor(Wire.R.shiftLeft(1).setBit(0)) + ")");
 	}
 	
-	System.out.println("output (pp): " + output);
+	System.out.println("output (pp): " + output.toString());
 	StopWatch.taskTimeStamp("output labels received and interpreted");
     }
 
     protected void verify_result() throws Exception {
 	BigInteger cBits = (BigInteger) ORAMTrialCommon.ois.readObject();
 	
-	BigInteger res = sBits.xor(cBits);
+	//BigInteger res = sBits.xor(cBits);
 
-	System.out.println("output (verify): " + 
-			   res.bitCount());
+	System.out.println("output (verify): " +
+			   sBits.intValue() + " " + 
+			   cBits.intValue());
+	//res.bitCount());
     }
 }

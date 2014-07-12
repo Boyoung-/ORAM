@@ -16,7 +16,7 @@ class ORAMTrialCommon extends ProgCommon {
 
     protected static void initCircuits() {
 	ccs = new Circuit[1];
-	ccs[0] = new HAMMING_2L_K(bitVecLen, bitLength(bitVecLen)+1);
+	ccs[0] = new FindFirstOne_2_2();
     }
 
     public static State execCircuit(BigInteger[] slbs, BigInteger[] clbs) throws Exception {
