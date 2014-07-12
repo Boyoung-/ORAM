@@ -105,18 +105,26 @@ public class ORAMTrialServer extends ProgServer {
 				    outputState.wires[i].lbl.xor(Wire.R.shiftLeft(1).setBit(0)) + ")");
 	}
 	
-	System.out.println("output (pp): " + output);
+	String outBits = output.toString(2);
+	outBits = new StringBuilder(outBits).reverse().toString();
+	int totalLen = ORAMTrialCommon.sBitLen + ORAMTrialCommon.cBitLen;
+	for (int i=outBits.length(); i<totalLen; i++)
+	    outBits += "0";
+	System.out.println("--- circuit output: " + outBits);
 	StopWatch.taskTimeStamp("output labels received and interpreted");
     }
 
     protected void verify_result() throws Exception {
 	BigInteger cBits = (BigInteger) ORAMTrialCommon.ois.readObject();
-	
-	//BigInteger res = sBits.xor(cBits);
 
-	System.out.println("output (verify): " +
-			   sBits.intValue() + " " + 
-			   cBits.intValue());
-	//res.bitCount());
+	String cStr = cBits.toString(2);
+	String sStr = sBits.toString(2);
+	for (int i=cStr.length(); i<ORAMTrialCommon.cBitLen; i++)
+	    cStr = "0" + cStr;
+	for (int i=sStr.length(); i<ORAMTrialCommon.sBitLen; i++)
+	    sStr = "0" + sStr;
+	String inBits = cStr + sStr;
+	inBits = new StringBuilder(inBits).reverse().toString();
+	System.out.println("--- circuit input: " + inBits);
     }
 }

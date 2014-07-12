@@ -7,7 +7,7 @@ public class Concatenate extends CompositeCircuit {
     private final int l;
 
     public Concatenate(int l) {
-	super(l, l, 0, "Concatenate");
+	super(l, 3, 0, "Concatenate");
 	
 	this.l = l;
     }
@@ -19,7 +19,7 @@ public class Concatenate extends CompositeCircuit {
     }
 
     protected void defineOutputWires() {
-	for (int i=0; i<l; i++)
+	for (int i=0; i<3; i++)
 	    outputWires[i] = inputWires[i];
     }
 }

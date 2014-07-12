@@ -1,7 +1,7 @@
 #!/bin/bash
 
-java -cp dist/FasterGC.jar:extlibs/jargs.jar:extlibs/commons-io-1.4.jar Test.TestORAMTrialServer -n 2 1>results/oramtrialserverout 2>results/oramtrialservererr &
+java -cp dist/FasterGC.jar:extlibs/jargs.jar:extlibs/commons-io-1.4.jar Test.TestORAMTrialServer -n 6 1>results/oramtrialserverout 2>results/oramtrialservererr &
 
 sleep 0.8
 
-java -cp dist/FasterGC.jar:extlibs/commons-io-1.4.jar:extlibs/jargs.jar Test.TestORAMTrialClient --server localhost  -n 4 -r 1 1>results/oramtrialclientout 2>results/oramtrialclienterr & 
+java -cp dist/FasterGC.jar:extlibs/commons-io-1.4.jar:extlibs/jargs.jar Test.TestORAMTrialClient --server localhost  -n 3 -r 1 1>results/oramtrialclientout 2>results/oramtrialclienterr & 

@@ -24,8 +24,8 @@ public class FindFirstOne_2_2 extends CompositeCircuit {
     }
 
     protected void defineOutputWires() {
-	outputWires[0] = subCircuits[1].outputWires[0];
-	outputWires[1] = subCircuits[2].outputWires[0];
+	outputWires[0] = subCircuits[2].outputWires[0];
+	outputWires[1] = subCircuits[1].outputWires[0];
     }
 
     protected void fixInternalWires() {

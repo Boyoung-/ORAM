@@ -28,8 +28,8 @@ public class FindFirstZero_2_2 extends CompositeCircuit {
     }
 
     protected void defineOutputWires() {
-	outputWires[0] = subCircuits[3].outputWires[0];
-	outputWires[1] = subCircuits[4].outputWires[0];
+	outputWires[0] = subCircuits[4].outputWires[0];
+	outputWires[1] = subCircuits[3].outputWires[0];
     }
 
     protected void fixInternalWires() {
