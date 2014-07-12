@@ -20,11 +20,12 @@ public class ORAMTrialServer extends ProgServer {
 
     public ORAMTrialServer(BigInteger bv, int length) {
 	sBits = bv;
-	ORAMTrialCommon.bitVecLen = length;
+	ORAMTrialCommon.sBitLen = length;
     }
 
     protected void init() throws Exception {
-	ORAMTrialCommon.oos.writeInt(ORAMTrialCommon.bitVecLen);
+	ORAMTrialCommon.cBitLen = ORAMTrialCommon.ois.readInt();
+	ORAMTrialCommon.oos.writeInt(ORAMTrialCommon.sBitLen);
 	ORAMTrialCommon.oos.flush();
 
 	ORAMTrialCommon.initCircuits();
@@ -35,24 +36,26 @@ public class ORAMTrialServer extends ProgServer {
     }
 
     private void generateLabelPairs() {
-	sBitslps = new BigInteger[ORAMTrialCommon.bitVecLen][2];
-	cBitslps = new BigInteger[ORAMTrialCommon.bitVecLen][2];
+	sBitslps = new BigInteger[ORAMTrialCommon.sBitLen][2];
+	cBitslps = new BigInteger[ORAMTrialCommon.cBitLen][2];
 
-	for (int i = 0; i < ORAMTrialCommon.bitVecLen; i++) {
+	for (int i = 0; i < ORAMTrialCommon.sBitLen; i++) {
 	    BigInteger glb0 = new BigInteger(Wire.labelBitLength, rnd);
 	    BigInteger glb1 = glb0.xor(Wire.R.shiftLeft(1).setBit(0));
 	    sBitslps[i][0] = glb0;
 	    sBitslps[i][1] = glb1;
+	}
 
-	    glb0 = new BigInteger(Wire.labelBitLength, rnd);
-	    glb1 = glb0.xor(Wire.R.shiftLeft(1).setBit(0));
+	for (int i = 0; i < ORAMTrialCommon.cBitLen; i++) {
+	    BigInteger glb0 = new BigInteger(Wire.labelBitLength, rnd);
+	    BigInteger glb1 = glb0.xor(Wire.R.shiftLeft(1).setBit(0));
 	    cBitslps[i][0] = glb0;
 	    cBitslps[i][1] = glb1;
 	}
     }
 
     protected void execTransfer() throws Exception {
-	for (int i = 0; i < ORAMTrialCommon.bitVecLen; i++) {
+	for (int i = 0; i < ORAMTrialCommon.sBitLen; i++) {
 	    int idx = sBits.testBit(i) ? 1 : 0;
 
 	    int bytelength = (Wire.labelBitLength-1)/8 + 1;
@@ -66,8 +69,8 @@ public class ORAMTrialServer extends ProgServer {
     }
 
     protected void execCircuit() throws Exception {
-	BigInteger[] sBitslbs = new BigInteger[ORAMTrialCommon.bitVecLen];
-	BigInteger[] cBitslbs = new BigInteger[ORAMTrialCommon.bitVecLen];
+	BigInteger[] sBitslbs = new BigInteger[ORAMTrialCommon.sBitLen];
+	BigInteger[] cBitslbs = new BigInteger[ORAMTrialCommon.cBitLen];
 
 	for (int i = 0; i < sBitslps.length; i++)
 	    sBitslbs[i] = sBitslps[i][0];
@@ -102,7 +105,7 @@ public class ORAMTrialServer extends ProgServer {
 				    outputState.wires[i].lbl.xor(Wire.R.shiftLeft(1).setBit(0)) + ")");
 	}
 	
-	System.out.println("output (pp): " + output.toString());
+	System.out.println("output (pp): " + output);
 	StopWatch.taskTimeStamp("output labels received and interpreted");
     }
 

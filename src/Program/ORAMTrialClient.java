@@ -16,29 +16,31 @@ public class ORAMTrialClient extends ProgClient {
 
     public ORAMTrialClient(BigInteger bv, int length) {
 	cBits = bv;
-	ORAMTrialCommon.bitVecLen = length;
+	ORAMTrialCommon.cBitLen = length;
     }
 
     protected void init() throws Exception {
-    	ORAMTrialCommon.bitVecLen = ORAMTrialCommon.ois.readInt();
+	ORAMTrialCommon.oos.writeInt(ORAMTrialCommon.cBitLen);
+	ORAMTrialCommon.oos.flush();
+    	ORAMTrialCommon.sBitLen = ORAMTrialCommon.ois.readInt();
 	
 	ORAMTrialCommon.initCircuits();
 
-    	otNumOfPairs = ORAMTrialCommon.bitVecLen;
+    	otNumOfPairs = ORAMTrialCommon.cBitLen;
 
     	super.init();
     }
 
     protected void execTransfer() throws Exception {
-	sBitslbs = new BigInteger[ORAMTrialCommon.bitVecLen];
+	sBitslbs = new BigInteger[ORAMTrialCommon.sBitLen];
 
-	for (int i = 0; i < ORAMTrialCommon.bitVecLen; i++) {
+	for (int i = 0; i < ORAMTrialCommon.sBitLen; i++) {
 	    int bytelength = (Wire.labelBitLength-1)/8 + 1;
 	    sBitslbs[i]   = Utils.readBigInteger(bytelength, ORAMTrialCommon.ois);
 	}
 	StopWatch.taskTimeStamp("receiving labels for peer's inputs");
 
-	cBitslbs = new BigInteger[ORAMTrialCommon.bitVecLen];
+	cBitslbs = new BigInteger[ORAMTrialCommon.cBitLen];
 	rcver.execProtocol(cBits);
 	cBitslbs = rcver.getData();
 	StopWatch.taskTimeStamp("receiving labels for self's inputs");

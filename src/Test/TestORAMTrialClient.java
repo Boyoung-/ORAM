@@ -43,6 +43,8 @@ class TestORAMTrialClient {
 
     private static void generateData() throws Exception {
 	bits = new BigInteger(n, rnd);
+	//bits = BigInteger.ZERO;
+	//bits = new BigInteger("1");
     }
 
     public static void main(String[] args) throws Exception {
