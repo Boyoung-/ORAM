@@ -18,8 +18,9 @@ class ORAMTrialCommon extends ProgCommon {
     protected static void initCircuits() {
 	ccs = new Circuit[1];
 	//ccs[0] = new FindFirstOne_2_2();
-	//ccs[0] = new Concatenate(9);
+	//ccs[0] = new Concatenate(18);
 	ccs[0] = new F2ET_Wplus2_Wplus2(sBitLen+cBitLen-2);
+	//ccs[0] = new F2FT_2Wplus2_Wplus2((sBitLen+cBitLen-2)/2);
     }
 
     public static State execCircuit(BigInteger[] slbs, BigInteger[] clbs) throws Exception {
