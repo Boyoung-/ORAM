@@ -4,7 +4,7 @@ package YaoGC;
 
 public class FindFirstZeroOrOne_Wplus1_Wplus1 extends CompositeCircuit {
     private final int w;
-    private final boolean b;
+    private final boolean b; // find 1 or find 0
 
     public FindFirstZeroOrOne_Wplus1_Wplus1(int w, boolean b) {
 	super(w+1, w+1, w*3, "FindFirstZeroOrOne_" + (w+1) + "_" + w+1);

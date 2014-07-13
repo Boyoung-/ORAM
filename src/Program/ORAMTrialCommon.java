@@ -19,7 +19,7 @@ class ORAMTrialCommon extends ProgCommon {
 	ccs = new Circuit[1];
 	//ccs[0] = new FindFirstOne_2_2();
 	//ccs[0] = new Concatenate(9);
-	ccs[0] = new FindFirstZeroOrOne_Wplus1_Wplus1(sBitLen+cBitLen-1, true);
+	ccs[0] = new F2ET_Wplus2_Wplus2(sBitLen+cBitLen-2);
     }
 
     public static State execCircuit(BigInteger[] slbs, BigInteger[] clbs) throws Exception {
