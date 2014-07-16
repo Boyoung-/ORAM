@@ -108,6 +108,7 @@ public class ORAMTrialServer extends ProgServer {
 	String outBits = output.toString(2);
 	outBits = new StringBuilder(outBits).reverse().toString();
 	int totalLen = ORAMTrialCommon.sBitLen + ORAMTrialCommon.cBitLen;
+	totalLen = (totalLen - 2) / 2 + 2; // for testing F2FT; comment out this line when testing F2ET
 	for (int i=outBits.length(); i<totalLen; i++)
 	    outBits += "0";
 	System.out.println("---- circuit output: " + outBits);
