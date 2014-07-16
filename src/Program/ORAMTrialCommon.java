@@ -16,10 +16,16 @@ class ORAMTrialCommon extends ProgCommon {
     }
 
     protected static void initCircuits() {
+	int s1, s2;
+	s1 = 0;
+	s2 = 4;
+	System.out.println("---- Sigma: " + s1 + "  " + s2);
+
 	ccs = new Circuit[1];
-	//ccs[0] = new FindFirstOne_2_2();
-	//ccs[0] = new Concatenate(18);
-	ccs[0] = new F2ET_Wplus2_Wplus2(sBitLen+cBitLen-2);
+	//ccs[0] = new FindFirstZeroOrOneT2_2_2();
+	//ccs[0] = new FindFirstZeroOrOne_Wplus1_Wplus1(sBitLen+cBitLen-1, true, 4);
+	//ccs[0] = new Concatenate(9);
+	ccs[0] = new F2ET_Wplus2_Wplus2(sBitLen+cBitLen-2, s1, s2);
 	//ccs[0] = new F2FT_2Wplus2_Wplus2((sBitLen+cBitLen-2)/2);
     }
 

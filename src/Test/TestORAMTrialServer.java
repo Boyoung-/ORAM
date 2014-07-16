@@ -38,9 +38,9 @@ class TestORAMTrialServer {
     }
 
     private static void generateData() throws Exception {
-	//bits = new BigInteger(n, rnd);
+	bits = new BigInteger(n, rnd);
 	//bits = BigInteger.ZERO;
-	bits = new BigInteger("52"); // test F2ET
+	//bits = new BigInteger("52"); // test F2ET
 	//bits = new BigInteger("54268");
     }
 

@@ -1,10 +1,11 @@
 // by Boyang
+// FindFirst0 Garbled Gate of Table 1
 
 package YaoGC;
 
-public class FindFirstZero_2_2 extends CompositeCircuit {
-    public FindFirstZero_2_2() {
-	super(2, 2, 5, "FindFirstZero_2_2");
+public class FindFirstZeroT1_2_2 extends CompositeCircuit {
+    public FindFirstZeroT1_2_2() {
+	super(2, 2, 5, "FindFirstZeroT1_2_2");
     }
 
     protected void createSubCircuits() throws Exception {
