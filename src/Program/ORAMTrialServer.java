@@ -110,7 +110,7 @@ public class ORAMTrialServer extends ProgServer {
 	int totalLen = ORAMTrialCommon.sBitLen + ORAMTrialCommon.cBitLen;
 	for (int i=outBits.length(); i<totalLen; i++)
 	    outBits += "0";
-	System.out.println("--- circuit output: " + outBits);
+	System.out.println("---- circuit output: " + outBits);
 	StopWatch.taskTimeStamp("output labels received and interpreted");
     }
 
@@ -125,6 +125,6 @@ public class ORAMTrialServer extends ProgServer {
 	    sStr = "0" + sStr;
 	String inBits = cStr + sStr;
 	inBits = new StringBuilder(inBits).reverse().toString();
-	System.out.println("--- circuit input: " + inBits);
+	System.out.println("---- circuit  input: " + inBits);
     }
 }

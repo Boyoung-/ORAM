@@ -4,11 +4,14 @@ package YaoGC;
 
 public class F2FT_2Wplus2_Wplus2 extends CompositeCircuit {
     private final int w;
+    private final int s1, s2; // sigma
 
-    public F2FT_2Wplus2_Wplus2(int w) {
+    public F2FT_2Wplus2_Wplus2(int w, int s1, int s2) {
 	super(2*w+2, w+2, 6*w+4, "F2FT_" + (2*w+2) + "_" + w+2);
 
 	this.w = w;
+	this.s1 = s1;
+	this.s2 = s2;
     }
 
     protected void createSubCircuits() throws Exception {
@@ -17,10 +20,10 @@ public class F2FT_2Wplus2_Wplus2 extends CompositeCircuit {
 	for (int i = w; i < 6*w; i++)
 	    subCircuits[i] = new XOR_2_1();
 
-	subCircuits[6*w]   = new FindFirstZeroOrOne_Wplus1_Wplus1(w, true);
-	subCircuits[6*w+1] = new FindFirstZeroOrOne_Wplus1_Wplus1(w, false);
-	subCircuits[6*w+2] = new FindFirstZeroOrOne_Wplus1_Wplus1(w, true);
-	subCircuits[6*w+3] = new FindFirstZeroOrOne_Wplus1_Wplus1(w, false);
+	subCircuits[6*w]   = new FindFirstZeroOrOne_Wplus1_Wplus1(w, true, s1);
+	subCircuits[6*w+1] = new FindFirstZeroOrOne_Wplus1_Wplus1(w, false, s1);
+	subCircuits[6*w+2] = new FindFirstZeroOrOne_Wplus1_Wplus1(w, true, s2);
+	subCircuits[6*w+3] = new FindFirstZeroOrOne_Wplus1_Wplus1(w, false, s2);
 
 	super.createSubCircuits();
     }

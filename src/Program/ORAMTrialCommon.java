@@ -17,7 +17,7 @@ class ORAMTrialCommon extends ProgCommon {
 
     protected static void initCircuits() {
 	int s1, s2;
-	s1 = 0;
+	s1 = 1;
 	s2 = 4;
 	System.out.println("---- Sigma: " + s1 + "  " + s2);
 

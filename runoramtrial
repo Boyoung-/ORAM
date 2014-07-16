@@ -1,6 +1,6 @@
 #!/bin/bash
 
-java -cp dist/FasterGC.jar:extlibs/jargs.jar:extlibs/commons-io-1.4.jar Test.TestORAMTrialServer -n 5 1>results/oramtrialserverout 2>results/oramtrialservererr &
+java -cp dist/FasterGC.jar:extlibs/jargs.jar:extlibs/commons-io-1.4.jar Test.TestORAMTrialServer -n 6 1>results/oramtrialserverout 2>results/oramtrialservererr &
 
 sleep 0.8
 
