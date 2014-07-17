@@ -22,8 +22,8 @@ class ORAMTrialCommon extends ProgCommon {
 	System.out.println("---- Sigma: " + s1 + "  " + s2);
 
 	ccs = new Circuit[1];
-	//ccs[0] = new F2ET_Wplus2_Wplus2(sBitLen+cBitLen-2, s1, s2);
-	ccs[0] = new F2FT_2Wplus2_Wplus2((sBitLen+cBitLen-2)/2, s1, s2);
+	ccs[0] = new F2ET_Wplus2_Wplus2(sBitLen+cBitLen-2, s1, s2); // for testing F2ET
+	//ccs[0] = new F2FT_2Wplus2_Wplus2((sBitLen+cBitLen-2)/2, s1, s2); // for testing F2FT
     }
 
     public static State execCircuit(BigInteger[] slbs, BigInteger[] clbs) throws Exception {

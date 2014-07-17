@@ -9,7 +9,7 @@ public class FindFirstZeroOrOneT2_2_2 extends CompositeCircuit {
     }
 
     protected void createSubCircuits() throws Exception {
-	subCircuits[0] = AND_2_1.newInstance();
+	subCircuits[0] = new XOR_2_1();
 	subCircuits[1] = AND_2_1.newInstance();
 
 	super.createSubCircuits();
@@ -27,7 +27,7 @@ public class FindFirstZeroOrOneT2_2_2 extends CompositeCircuit {
 
     protected void fixInternalWires() {
     	Wire internalWire = subCircuits[0].inputWires[1];
-    	internalWire.fixWire(1);
+    	internalWire.fixWire(0);
 	internalWire = subCircuits[1].inputWires[1];
     	internalWire.fixWire(0);
     }
