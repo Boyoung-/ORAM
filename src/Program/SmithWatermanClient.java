@@ -71,4 +71,7 @@ public class SmithWatermanClient extends ProgClient {
 	SmithWatermanCommon.oos.writeObject(cdna);
 	SmithWatermanCommon.oos.flush();
     }
+
+    protected void reset_input() throws Exception {
+    }
 }

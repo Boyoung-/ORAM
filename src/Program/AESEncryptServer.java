@@ -114,5 +114,8 @@ public class AESEncryptServer extends ProgServer {
     protected void verify_result() throws Exception {
 
     }
+
+    protected void reset_input() throws Exception {
+    }
 }
 

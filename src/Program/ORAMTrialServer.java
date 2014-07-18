@@ -127,5 +127,11 @@ public class ORAMTrialServer extends ProgServer {
 	String inBits = cStr + sStr;
 	inBits = new StringBuilder(inBits).reverse().toString();
 	System.out.println("---- circuit  input: " + inBits);
+	System.out.println();
+    }
+
+    protected void reset_input() throws Exception {
+	SecureRandom sr = new SecureRandom();
+	sBits = new BigInteger(ORAMTrialCommon.sBitLen, sr);
     }
 }

@@ -43,8 +43,6 @@ class TestORAMTrialClient {
 
     private static void generateData() throws Exception {
 	bits = new BigInteger(n, rnd);
-	//bits = BigInteger.ZERO;
-	//bits = new BigInteger("9"); // test F2ET
     }
 
     public static void main(String[] args) throws Exception {
@@ -52,7 +50,7 @@ class TestORAMTrialClient {
 	process_cmdline_args(args);
 
 	generateData();
-
+	
 	ORAMTrialClient oramtrialclient = new ORAMTrialClient(bits, n);
 	oramtrialclient.run();
     }

@@ -58,4 +58,7 @@ public class EditDistanceClient extends ProgClient {
 	EditDistanceCommon.oos.writeObject(cdna);
 	EditDistanceCommon.oos.flush();
     }
+
+    protected void reset_input() throws Exception {
+    }
 }

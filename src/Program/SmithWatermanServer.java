@@ -154,4 +154,7 @@ public class SmithWatermanServer extends ProgServer {
 
 	System.out.println("output (verify): " + D[sdnaLen][cdnaLen]);
     }
+
+    protected void reset_input() throws Exception {
+    }
 }

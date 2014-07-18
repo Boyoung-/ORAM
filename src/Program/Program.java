@@ -11,6 +11,7 @@ public abstract class Program {
 	for (int i = 0; i < iterCount; i++) {
 	    execute();
 	    verify_result();
+	    reset_input();
 	}
     }
 
@@ -39,4 +40,6 @@ public abstract class Program {
     abstract protected void interpretResult() throws Exception;
 
     abstract protected void verify_result() throws Exception;
+
+    abstract protected void reset_input() throws Exception;
 }

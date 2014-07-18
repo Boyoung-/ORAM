@@ -4,6 +4,7 @@
 package Program;
 
 import java.math.*;
+import java.security.SecureRandom;
 
 import YaoGC.*;
 import Utils.*;
@@ -48,6 +49,7 @@ public class ORAMTrialClient extends ProgClient {
 
     protected void execCircuit() throws Exception {
 	outputState = ORAMTrialCommon.execCircuit(sBitslbs, cBitslbs);
+	System.out.println();
     }
 
 
@@ -59,5 +61,10 @@ public class ORAMTrialClient extends ProgClient {
     protected void verify_result() throws Exception {
 	ORAMTrialCommon.oos.writeObject(cBits);
 	ORAMTrialCommon.oos.flush();
+    }
+
+    protected void reset_input() throws Exception {
+	SecureRandom sr = new SecureRandom();
+	cBits = new BigInteger(ORAMTrialCommon.cBitLen, sr);
     }
 }

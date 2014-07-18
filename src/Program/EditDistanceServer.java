@@ -138,4 +138,7 @@ public class EditDistanceServer extends ProgServer {
 	System.out.println("output (verify): " + 
 			   D[EditDistanceCommon.sdnaLen][EditDistanceCommon.cdnaLen]);
     }
+
+    protected void reset_input() throws Exception {
+    }
 }

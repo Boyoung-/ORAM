@@ -57,4 +57,7 @@ public class HammingDistanceClient extends ProgClient {
 	HammingDistanceCommon.oos.writeObject(cBits);
 	HammingDistanceCommon.oos.flush();
     }
+
+    protected void reset_input() throws Exception {
+    }
 }

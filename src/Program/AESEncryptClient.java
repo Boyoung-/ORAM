@@ -66,5 +66,8 @@ public class AESEncryptClient extends ProgClient {
     protected void verify_result() throws Exception {
 
     }
+
+    protected void reset_input() throws Exception {
+    }
 }
 

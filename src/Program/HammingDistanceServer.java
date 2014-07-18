@@ -114,4 +114,7 @@ public class HammingDistanceServer extends ProgServer {
 	System.out.println("output (verify): " + 
 			   res.bitCount());
     }
+
+    protected void reset_input() throws Exception {
+    }
 }
