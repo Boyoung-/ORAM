@@ -4,6 +4,7 @@
   <target name="init" >
     <mkdir dir="build/classes" />
     <mkdir dir="dist" />
+    <mkdir dir="results" />
   </target>
 
   <target name="compile" depends="init" >
@@ -19,6 +20,7 @@
   <target name="clean" depends="init" >
     <delete dir="build" />
     <delete dir="dist" />
+    <delete dir="results" />
   </target>
 
   <target name="archive" depends="compile" >

@@ -1,2 +1,0 @@
-This file has nothing to do with the project.
-It is used to force the results folder to be pushed on git.
