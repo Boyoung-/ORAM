@@ -18,12 +18,13 @@ class TestORAMTrialServer {
     static SecureRandom rnd = new SecureRandom();
 
     private static void printUsage() {
-	System.out.println("Usage: java TestORAMTrialServer [{-n, --bit-length} length]");
+	System.out.println("Usage: java TestORAMTrialServer [{-n, --bit-length} length] [{-c, --circuit} circuit]");
     }
 
     private static void process_cmdline_args(String[] args) {
 	CmdLineParser parser = new CmdLineParser();
 	CmdLineParser.Option optionBitLength = parser.addIntegerOption('n', "bit-length");
+	CmdLineParser.Option optionCircuit = parser.addStringOption('c', "circuit");
 
 	try {
 	    parser.parse(args);
@@ -35,10 +36,12 @@ class TestORAMTrialServer {
 	}
 
 	n = ((Integer) parser.getOptionValue(optionBitLength, new Integer(100))).intValue();
+	ORAMTrialCommon.circuit = (String) parser.getOptionValue(optionCircuit, new String("F2ET"));
     }
 
     private static void generateData() throws Exception {
 	bits = new BigInteger(n, rnd);
+	//bits = new BigInteger("00000000000000", 2);
     }
 
     public static void main(String[] args) throws Exception {

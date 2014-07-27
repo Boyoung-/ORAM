@@ -7,9 +7,11 @@ import java.math.*;
 import Utils.*;
 import YaoGC.*;
 
-class ORAMTrialCommon extends ProgCommon {
+public class ORAMTrialCommon extends ProgCommon {
     static int sBitLen;
     static int cBitLen;
+
+    public static String circuit = null;
 
     static int bitLength(int x) {
     	return BigInteger.valueOf(x).bitLength();
@@ -22,8 +24,10 @@ class ORAMTrialCommon extends ProgCommon {
 	System.out.println("---- Sigma: " + s1 + "  " + s2);
 
 	ccs = new Circuit[1];
-	ccs[0] = new F2ET_Wplus2_Wplus2(sBitLen+cBitLen-2, s1, s2); // for testing F2ET
-	//ccs[0] = new F2FT_2Wplus2_Wplus2((sBitLen+cBitLen-2)/2, s1, s2); // for testing F2FT
+	if (circuit.equals("F2ET"))
+	    ccs[0] = new F2ET_Wplus2_Wplus2(sBitLen+cBitLen-2, s1, s2); // for testing F2ET
+	else
+	    ccs[0] = new F2FT_2Wplus2_Wplus2((sBitLen+cBitLen-2)/2, s1, s2); // for testing F2FT
     }
 
     public static State execCircuit(BigInteger[] slbs, BigInteger[] clbs) throws Exception {

@@ -26,7 +26,7 @@ public abstract class ProgClient extends Program {
     }
 
     protected void init() throws Exception {
-	System.out.println(Program.iterCount);
+	System.out.println("Iteration: " + Program.iterCount);
 	ProgCommon.oos.writeInt(Program.iterCount);
 	ProgCommon.oos.flush();
 
