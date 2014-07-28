@@ -124,6 +124,10 @@ public class ORAMTrialServer extends ProgServer {
 
 	String cStr = cBits.toString(2);
 	String sStr = sBits.toString(2);
+	if (ORAMTrialCommon.cBitLen == 0)
+	    cStr = "";
+	if (ORAMTrialCommon.sBitLen == 0)
+	    sStr = "";
 	for (int i=cStr.length(); i<ORAMTrialCommon.cBitLen; i++)
 	    cStr = "0" + cStr;
 	for (int i=sStr.length(); i<ORAMTrialCommon.sBitLen; i++)
