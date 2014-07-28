@@ -18,6 +18,8 @@ public class ORAMTrialServer extends ProgServer {
 
     private static final SecureRandom rnd = new SecureRandom();
 
+    private String outputBits = null;
+
     public ORAMTrialServer(BigInteger bv, int length) {
 	sBits = bv;
 	ORAMTrialCommon.sBitLen = length;
@@ -113,6 +115,7 @@ public class ORAMTrialServer extends ProgServer {
 	for (int i=outBits.length(); i<totalLen; i++)
 	    outBits += "0";
 	System.out.println("---- circuit output: " + outBits);
+	outputBits = outBits;
 	StopWatch.taskTimeStamp("output labels received and interpreted");
     }
 
@@ -134,5 +137,9 @@ public class ORAMTrialServer extends ProgServer {
     protected void reset_input() throws Exception {
 	SecureRandom sr = new SecureRandom();
 	sBits = new BigInteger(ORAMTrialCommon.sBitLen, sr);
+    }
+
+    public String getOutput() {
+	return outputBits;
     }
 }
