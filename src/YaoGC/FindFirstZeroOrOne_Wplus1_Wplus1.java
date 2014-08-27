@@ -19,12 +19,12 @@ public class FindFirstZeroOrOne_Wplus1_Wplus1 extends CompositeCircuit {
 	for (int i = 1; i <= w*2; i++) {
 	    if (s <= i && i <= w+s-1) {
 		if (b)
-		    subCircuits[i-1] = new FindFirstOneT1_2_2();
+		    subCircuits[i-1] = new FF10_2_2(1);
 		else
-		    subCircuits[i-1] = new FindFirstZeroT1_2_2();
+		    subCircuits[i-1] = new FF10_2_2(2);
 	    }
 	    else { // i < s || w+s-1 < i
-		subCircuits[i-1] = new FindFirstZeroOrOneT2_2_2();
+		subCircuits[i-1] = new FF10_2_2(3);
 	    }
 	}
 	
