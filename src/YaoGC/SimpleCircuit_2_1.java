@@ -62,7 +62,7 @@ public abstract class SimpleCircuit_2_1 extends Circuit {
 	    outWire.invd = false;
 
 	    if (collapse()) {
-
+		System.out.println("Collapse Happened!!!!!");
 	    }
 	    else {
 		execYao();

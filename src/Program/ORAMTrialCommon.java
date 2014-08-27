@@ -32,8 +32,8 @@ public class ORAMTrialCommon extends ProgCommon {
 	    w = sBitLen+cBitLen-2;
 	else
 	    w = (sBitLen+cBitLen-2)/2;	
-	tmp1 = randInt(1, w);
-	tmp2 = randInt(1, w);
+	//tmp1 = randInt(1, w);
+	//tmp2 = randInt(1, w);
 	//s1 = Math.min(tmp1, tmp2);
 	//s2 = Math.max(tmp1, tmp2);
 	s1 = 1;
@@ -41,10 +41,13 @@ public class ORAMTrialCommon extends ProgCommon {
 	System.out.println("---- Sigma: " + s1 + "  " + s2);
 
 	ccs = new Circuit[1];
+	ccs[0] = new T1_FF1_2_2();
+	/*
 	if (circuit.equals("F2ET"))
 	    ccs[0] = new F2ET_Wplus2_Wplus2(w, s1, s2); // for testing F2ET
 	else
 	    ccs[0] = new F2FT_2Wplus2_Wplus2(w, s1, s2); // for testing F2FT
+	*/
     }
 
     public static State execCircuit(BigInteger[] slbs, BigInteger[] clbs) throws Exception {
