@@ -25,6 +25,7 @@ public class FF10_2_2 extends CompositeCircuit {
 	    subCircuits[0] = T2_FF10_S_2_1.newInstance();
 	    subCircuits[1] = T2_FF10_O_2_1.newInstance();
 	}
+	id = -1;
 
 	super.createSubCircuits();
     }
