@@ -55,14 +55,10 @@ public class F2FT_2Wplus2_Wplus2 extends CompositeCircuit {
     }
 
     protected void defineOutputWires() {
-	outputWires[0] = subCircuits[6*w+1].outputWires[w];
-	outputWires[1] = subCircuits[6*w+3].outputWires[w];
+	outputWires[w+1] = subCircuits[6*w+1].outputWires[w];
+	outputWires[w] = subCircuits[6*w+3].outputWires[w];
 
 	for (int i = 0; i < w; i++)
-	    outputWires[i+2] = subCircuits[i+5*w].outputWires[0];
-	/*
-	for (int i=0; i<w+2; i++)
-	    outputWires[i] = inputWires[i];
-	*/
+	    outputWires[w-1-i] = subCircuits[i+5*w].outputWires[0];
     }
 }

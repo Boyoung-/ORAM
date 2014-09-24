@@ -108,7 +108,6 @@ public class ORAMTrialServer extends ProgServer {
 	}
 	
 	String outBits = output.toString(2);
-	outBits = new StringBuilder(outBits).reverse().toString();
 	int totalLen = ORAMTrialCommon.sBitLen + ORAMTrialCommon.cBitLen;
 	if (ORAMTrialCommon.circuit.equals("F2FT"))
 	    totalLen = (totalLen - 2) / 2 + 2; 

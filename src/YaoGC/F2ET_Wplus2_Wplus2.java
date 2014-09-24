@@ -39,10 +39,10 @@ public class F2ET_Wplus2_Wplus2 extends CompositeCircuit {
     }
 
     protected void defineOutputWires() {
-	outputWires[0] = subCircuits[2*w].outputWires[w];
-	outputWires[1] = subCircuits[2*w+1].outputWires[w];
+	outputWires[w+1] = subCircuits[2*w].outputWires[w];
+	outputWires[w] = subCircuits[2*w+1].outputWires[w];
 
 	for (int i = 0; i < w; i++)
-	    outputWires[i+2] = subCircuits[i+w].outputWires[0];
+	    outputWires[w-1-i] = subCircuits[i+w].outputWires[0];
     }
 }
